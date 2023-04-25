@@ -1,0 +1,165 @@
+Welcome to Ubuntu 22.10 (GNU/Linux 5.19.0-1019-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+0 updates can be applied immediately.
+
+
+The list of available updates is more than a week old.
+To check for new updates run: sudo apt update
+New release '23.04' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Tue Apr 25 21:25:48 2023 from 35.235.243.66
+s_joshi2@instance-1:~$ mkdir rr
+s_joshi2@instance-1:~$ cd rr
+s_joshi2@instance-1:~/rr$ touch test.txt
+s_joshi2@instance-1:~/rr$ nano new.txt
+-bash: nano: command not found
+s_joshi2@instance-1:~/rr$ ^C
+s_joshi2@instance-1:~/rr$ sudo apt- get update
+sudo: apt-: command not found
+s_joshi2@instance-1:~/rr$ sudo apt -get install nano
+E: Command line option 'g' [from -get] is not understood in combination with the other options.
+s_joshi2@instance-1:~/rr$ ^C
+s_joshi2@instance-1:~/rr$ sudo nano new.txt
+sudo: nano: command not found
+s_joshi2@instance-1:~/rr$ nano new.txt
+-bash: nano: command not found
+s_joshi2@instance-1:~/rr$ ^C
+s_joshi2@instance-1:~/rr$ vi new.txt
+-bash: vi: command not found
+s_joshi2@instance-1:~/rr$ sudo apt-get install nano
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package nano is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Package 'nano' has no installation candidate
+s_joshi2@instance-1:~/rr$ nano new.txt
+-bash: nano: command not found
+s_joshi2@instance-1:~/rr$ sudo apt install nano
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Package nano is not available, but is referred to by another package.
+This may mean that the package is missing, has been obsoleted, or
+is only available from another source
+
+E: Package 'nano' has no installation candidate
+s_joshi2@instance-1:~/rr$ sudo apt-get update
+Get:1 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic InRelease [267 kB]
+Get:2 http://security.ubuntu.com/ubuntu kinetic-security InRelease [109 kB]         
+Get:3 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates InRelease [118 kB]
+Get:4 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-backports InRelease [99.9 kB]
+Get:5 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/main amd64 Packages [1384 kB]
+Get:6 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/main Translation-en [509 kB]
+Get:7 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/restricted amd64 Packages [120 kB]
+Get:8 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/restricted Translation-en [18.0 kB]
+Get:9 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/universe amd64 Packages [14.5 MB]
+Get:10 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/universe Translation-en [5791 kB]
+Get:11 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/multiverse amd64 Packages [236 kB]
+Get:12 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/multiverse Translation-en [112 kB]
+Get:13 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/main amd64 Packages [417 kB]
+Get:14 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/main Translation-en [109 kB]
+Get:15 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/restricted amd64 Packages [310 kB]
+Get:16 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/restricted Translation-en [50.8 kB]
+Get:17 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/universe amd64 Packages [265 kB]
+Get:18 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/universe Translation-en [101 kB]
+Get:19 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/multiverse amd64 Packages [6224 B]
+Get:20 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-updates/multiverse Translation-en [1412 B]
+Get:21 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-backports/universe amd64 Packages [4236 B]
+Get:22 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic-backports/universe Translation-en [1516 B]
+Get:23 http://security.ubuntu.com/ubuntu kinetic-security/main amd64 Packages [296 kB]
+Get:24 http://security.ubuntu.com/ubuntu kinetic-security/main Translation-en [76.1 kB]
+Get:25 http://security.ubuntu.com/ubuntu kinetic-security/restricted amd64 Packages [309 kB]
+Get:26 http://security.ubuntu.com/ubuntu kinetic-security/restricted Translation-en [50.4 kB]
+Get:27 http://security.ubuntu.com/ubuntu kinetic-security/universe amd64 Packages [155 kB]
+Get:28 http://security.ubuntu.com/ubuntu kinetic-security/universe Translation-en [66.8 kB]
+Get:29 http://security.ubuntu.com/ubuntu kinetic-security/multiverse amd64 Packages [5568 B]
+Get:30 http://security.ubuntu.com/ubuntu kinetic-security/multiverse Translation-en [1012 B]
+Fetched 25.5 MB in 4s (5943 kB/s)                           
+Reading package lists... Done
+s_joshi2@instance-1:~/rr$ sudo apt install nano
+Reading package lists... Done
+Building dependency tree... Done
+Reading state information... Done
+Suggested packages:
+  hunspell
+The following NEW packages will be installed:
+  nano
+0 upgraded, 1 newly installed, 0 to remove and 6 not upgraded.
+Need to get 282 kB of archives.
+After this operation, 889 kB of additional disk space will be used.
+Get:1 http://us-west4.gce.archive.ubuntu.com/ubuntu kinetic/main amd64 nano amd64 6.4-1 [282 kB]
+Fetched 282 kB in 1s (552 kB/s)
+debconf: delaying package configuration, since apt-utils is not installed
+Selecting previously unselected package nano.
+(Reading database ... 50744 files and directories currently installed.)
+Preparing to unpack .../archives/nano_6.4-1_amd64.deb ...
+Unpacking nano (6.4-1) ...
+Setting up nano (6.4-1) ...
+update-alternatives: using /bin/nano to provide /usr/bin/editor (editor) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/editor.1.gz because associated file /usr/share/man/man1/nano.1.gz (of link group editor) doesn't exist
+update-alternatives: using /bin/nano to provide /usr/bin/pico (pico) in auto mode
+update-alternatives: warning: skip creation of /usr/share/man/man1/pico.1.gz because associated file /usr/share/man/man1/nano.1.gz (of link group pico) doesn't exist
+debconf: unable to initialize frontend: Dialog
+debconf: (No usable dialog-like program is installed, so the dialog based frontend cannot be used. at /usr/share/perl5/Debconf/FrontEnd/Dialog.pm line 78.)
+debconf: falling back to frontend: Readline
+Scanning processes...                                                                                           
+Scanning processor microcode...                                                                                 
+Scanning linux images...                                                                                        
+
+Running kernel seems to be up-to-date.
+
+Failed to check for processor microcode upgrades.
+
+No services need to be restarted.
+
+No containers need to be restarted.
+
+No user sessions are running outdated binaries.
+
+No VM guests are running outdated hypervisor (qemu) binaries on this host.
+s_joshi2@instance-1:~/rr$ nano new.txt
+s_joshi2@instance-1:~/rr$ nano new.txt
+s_joshi2@instance-1:~/rr$ sudo cp /etc/modules .
+s_joshi2@instance-1:~/rr$ ls -lS
+total 8
+-rw-r--r-- 1 root     root     248 Apr 25 21:52 modules
+-rw-rw-r-- 1 s_joshi2 s_joshi2  25 Apr 25 21:50 new.txt
+-rw-rw-r-- 1 s_joshi2 s_joshi2   0 Apr 25 21:40 test.txt
+s_joshi2@instance-1:~/rr$ ls -l- S
+ls: invalid option -- '-'
+Try 'ls --help' for more information.
+s_joshi2@instance-1:~/rr$ ls -SL
+modules  new.txt  test.txt
+s_joshi2@instance-1:~/rr$ ls -lS
+total 8
+-rw-r--r-- 1 root     root     248 Apr 25 21:52 modules
+-rw-rw-r-- 1 s_joshi2 s_joshi2  25 Apr 25 21:50 new.txt
+-rw-rw-r-- 1 s_joshi2 s_joshi2   0 Apr 25 21:40 test.txt
+s_joshi2@instance-1:~/rr$ rmdir rr
+rmdir: failed to remove 'rr': No such file or directory
+s_joshi2@instance-1:~/rr$ rm -rf rr
+s_joshi2@instance-1:~/rr$ ls
+modules  new.txt  test.txt
+s_joshi2@instance-1:~/rr$ rm -r rr
+rm: cannot remove 'rr': No such file or directory
+s_joshi2@instance-1:~/rr$ cd ..
+s_joshi2@instance-1:~$ ls
+rr  test.txt
+s_joshi2@instance-1:~$ rm -rf rr
+s_joshi2@instance-1:~$ ls
+test.txt
+s_joshi2@instance-1:~$ 

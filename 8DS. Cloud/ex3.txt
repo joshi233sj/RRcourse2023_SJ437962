@@ -1,0 +1,136 @@
+Welcome to Ubuntu 22.10 (GNU/Linux 5.19.0-1019-gcp x86_64)
+
+ * Documentation:  https://help.ubuntu.com
+ * Management:     https://landscape.canonical.com
+ * Support:        https://ubuntu.com/advantage
+
+
+This system has been minimized by removing packages and content that are
+not required on a system that users do not log into.
+
+To restore this content, you can run the 'unminimize' command.
+
+10 updates can be applied immediately.
+9 of these updates are standard security updates.
+To see these additional updates run: apt list --upgradable
+
+New release '23.04' available.
+Run 'do-release-upgrade' to upgrade to it.
+
+Last login: Tue Apr 25 21:38:29 2023 from 35.235.245.98
+s_joshi2@instance-1:~$ ps aux | grep cpu
+root          10  0.0  0.0      0     0 ?        I<   21:37   0:00 [mm_percpu_wq]
+root          18  0.0  0.0      0     0 ?        S    21:37   0:00 [cpuhp/0]
+root          19  0.0  0.0      0     0 ?        S    21:37   0:00 [cpuhp/1]
+s_joshi2    1303  0.0  0.2   3868  1996 pts/1    R+   22:02   0:00 grep --color=auto cpu
+s_joshi2@instance-1:~$ ifconfig | tail -3
+-bash: ifconfig: command not found
+s_joshi2@instance-1:~$ ip a | tail -3
+       valid_lft 84778sec preferred_lft 84778sec
+    inet6 fe80::4001:aff:feb6:2/64 scope link 
+       valid_lft forever preferred_lft forever
+s_joshi2@instance-1:~$ cd /etc/nvme
+s_joshi2@instance-1:/etc/nvme$ cd $(find /etc -type f -print -quit | xargs dirname)
+s_joshi2@instance-1:/etc$ cd $(find /etc -type f -exec dirname {} \; | sort -u | head -1)
+find: ‘/etc/polkit-1/localauthority’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+find: ‘/etc/sudoers.d’: Permission denied
+s_joshi2@instance-1:/etc$ ls
+NetworkManager          environment         legal                   pam.conf      shadow-
+X11                     ethertypes          libaudit.conf           pam.d         shells
+adduser.conf            fstab               libnl-3                 passwd        skel
+adduser.conf.dpkg-save  fuse.conf           localtime               passwd-       sos
+alternatives            gai.conf            logcheck                perl          ssh
+apparmor                google_instance_id  login.defs              pm            ssl
+apparmor.d              gprofng.rc          logrotate.conf          polkit-1      subgid
+apport                  groff               logrotate.d             pollinate     subgid-
+apt                     group               lsb-release             ppp           subuid
+bash.bashrc             group-              lvm                     profile       subuid-
+bash_completion.d       grub.d              machine-id              profile.d     sudo.conf
+bindresvport.blacklist  gshadow             magic                   protocols     sudo_logsrvd.conf
+binfmt.d                gshadow-            magic.mime              python3       sudoers
+boto.cfg                gss                 mdadm                   python3.10    sudoers.d
+ca-certificates         host.conf           mime.types              rc0.d         sysctl.conf
+ca-certificates.conf    hostname            mke2fs.conf             rc1.d         sysctl.d
+chrony                  hosts               modprobe.d              rc2.d         systemd
+cloud                   hosts.allow         modules                 rc3.d         terminfo
+console-setup           hosts.deny          modules-load.d          rc4.d         timezone
+cron.d                  init.d              mtab                    rc5.d         tmpfiles.d
+cron.daily              initramfs-tools     nanorc                  rc6.d         ubuntu-advantage
+crypttab                inputrc             needrestart             rcS.d         ucf.conf
+dbus-1                  iproute2            netconfig               resolv.conf   udev
+debconf.conf            iscsi               netplan                 rmt           ufw
+debian_version          issue               network                 rpc           update-manager
+default                 issue.net           networkd-dispatcher     rsyslog.conf  update-motd.d
+deluser.conf            kernel              networks                rsyslog.d     update-notifier
+depmod.d                kernel-img.conf     nsswitch.conf           security      usb_modeswitch.conf
+dhcp                    ld.so.cache         nvme                    selinux       usb_modeswitch.d
+dpkg                    ld.so.conf          opt                     services      wgetrc
+e2scrub.conf            ld.so.conf.d        os-release              sgml          xattr.conf
+ec2_version             ldap                overlayroot.local.conf  shadow        xdg
+s_joshi2@instance-1:/etc$ cd $(find /etc -type f -exec dirname {} \; | sort -u | shuf -n1)
+find: ‘/etc/polkit-1/localauthority’: Permission denied
+find: ‘/etc/ssl/private’: Permission denied
+find: ‘/etc/sudoers.d’: Permission denied
+s_joshi2@instance-1:/etc/apport$ pwd
+/etc/apport
+s_joshi2@instance-1:/etc/apport$ ls
+blacklist.d  crashdb.conf
+s_joshi2@instance-1:/etc/apport$ head -3 blacklist.d
+head: error reading 'blacklist.d': Is a directory
+s_joshi2@instance-1:/etc/apport$ head -3 crashbd.conf
+head: cannot open 'crashbd.conf' for reading: No such file or directory
+s_joshi2@instance-1:/etc/apport$ cd ..
+s_joshi2@instance-1:/etc$ ls
+NetworkManager          environment         legal                   pam.conf      shadow-
+X11                     ethertypes          libaudit.conf           pam.d         shells
+adduser.conf            fstab               libnl-3                 passwd        skel
+adduser.conf.dpkg-save  fuse.conf           localtime               passwd-       sos
+alternatives            gai.conf            logcheck                perl          ssh
+apparmor                google_instance_id  login.defs              pm            ssl
+apparmor.d              gprofng.rc          logrotate.conf          polkit-1      subgid
+apport                  groff               logrotate.d             pollinate     subgid-
+apt                     group               lsb-release             ppp           subuid
+bash.bashrc             group-              lvm                     profile       subuid-
+bash_completion.d       grub.d              machine-id              profile.d     sudo.conf
+bindresvport.blacklist  gshadow             magic                   protocols     sudo_logsrvd.conf
+binfmt.d                gshadow-            magic.mime              python3       sudoers
+boto.cfg                gss                 mdadm                   python3.10    sudoers.d
+ca-certificates         host.conf           mime.types              rc0.d         sysctl.conf
+ca-certificates.conf    hostname            mke2fs.conf             rc1.d         sysctl.d
+chrony                  hosts               modprobe.d              rc2.d         systemd
+cloud                   hosts.allow         modules                 rc3.d         terminfo
+console-setup           hosts.deny          modules-load.d          rc4.d         timezone
+cron.d                  init.d              mtab                    rc5.d         tmpfiles.d
+cron.daily              initramfs-tools     nanorc                  rc6.d         ubuntu-advantage
+crypttab                inputrc             needrestart             rcS.d         ucf.conf
+dbus-1                  iproute2            netconfig               resolv.conf   udev
+debconf.conf            iscsi               netplan                 rmt           ufw
+debian_version          issue               network                 rpc           update-manager
+default                 issue.net           networkd-dispatcher     rsyslog.conf  update-motd.d
+deluser.conf            kernel              networks                rsyslog.d     update-notifier
+depmod.d                kernel-img.conf     nsswitch.conf           security      usb_modeswitch.conf
+dhcp                    ld.so.cache         nvme                    selinux       usb_modeswitch.d
+dpkg                    ld.so.conf          opt                     services      wgetrc
+e2scrub.conf            ld.so.conf.d        os-release              sgml          xattr.conf
+ec2_version             ldap                overlayroot.local.conf  shadow        xdg
+s_joshi2@instance-1:/etc$ head -3 issue.net
+Ubuntu 22.10
+s_joshi2@instance-1:/etc$ head -5 issue.net
+Ubuntu 22.10
+s_joshi2@instance-1:/etc$ head -3 timezone
+Etc/UTC
+s_joshi2@instance-1:/etc$ head -3 environment
+PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin"
+s_joshi2@instance-1:/etc$ head -3 modules
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+s_joshi2@instance-1:/etc$ head -5 modules
+# /etc/modules: kernel modules to load at boot time.
+#
+# This file contains the names of kernel modules that should be loaded
+# at boot time, one per line. Lines beginning with "#" are ignored.
+# Parameters can be specified after the module name.
+s_joshi2@instance-1:/etc$ 
+s_joshi2@instance-1:/etc$ 
