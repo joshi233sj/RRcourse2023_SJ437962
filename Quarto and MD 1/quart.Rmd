@@ -32,10 +32,19 @@ The series concluded with its eighth season, which premiered on April 14, 2019, 
 | 8     | 6        | April 14, 2019   | May 19, 2019  | 11.99 [19]                |
 
 
-knitr::include_graphics("https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg")
+## Summary of Basic Statistics
 
+1. The average viewership of the sho
 
+2. Season 7 had the highest viewership for a single episode, with the season finale ‘The Dragon and the Wolf’ being watched by 16.5 million viewers across all platforms within a week of its premiere
 
+3. The season 4 premiere ‘Two Swords’ had the highest viewership for a single episode at the time of its airing, with 6.60 million viewers tuning in.
+
+4. The series finale ‘The Iron Throne’ was watched by a record-breaking 19.3 million viewers across all platforms within a week of its premiere, becoming the most-watched episode of any HBO show ever.
+
+5. The show received critical acclaim and numerous awards, including 59 Primetime Emmy Awards and a Peabody Award.
+
+6. The show’s ratings on review aggregator websites like Rotten Tomatoes and Metacritic were generally positive, with an average rating of 94% and 77 out of 100, respectively.
 
 
 
