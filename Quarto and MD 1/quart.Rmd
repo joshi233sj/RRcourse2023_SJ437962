@@ -9,6 +9,9 @@ output: html_document
 
 # Game Of Thrones
 
+kni![Game of Thrones Logo](https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg)
+
+
 **Game of Thrones** is an American fantasy drama television series created by **David Benioff** and **D. B. Weiss**. The series is based on **George R. R. Martin's** series of fantasy novels, A Song of Ice and Fire. The series takes place on the fictional continents of Westeros and Essos, and chronicles the power struggles among noble families as they fight for control of the Iron Throne of the Seven Kingdoms. The series starts when House Stark, led by **Lord Eddard** "Ned" Stark (Sean Bean), is drawn into schemes surrounding **King Robert Baratheon** (Mark Addy).[1]
 
 The series premiered on April 17, 2011, on HBO. **David Benioff** and **D. B. Weiss** both serve as executive producers, along with **Carolyn *Strauss**, **Frank Doelger**, Bernadette Caulfield, and George R. R. Martin.[2][3] Filming for the series took place in a number of locations, including Croatia, Northern Ireland, Iceland, and Spain.[4][5][6] Episodes were broadcast on Sunday at 9:00 pm Eastern Time,[7][8] and the episodes are between 50 and 82 minutes in length.[9] All eight seasons are available on DVD, Blu-ray and Ultra HD Blu-ray.
@@ -27,6 +30,14 @@ The series concluded with its eighth season, which premiered on April 14, 2019, 
 | 6     | 10       | April 24, 2016   | June 26, 2016 | 7.69 [17]                 |
 | 7     | 7        | July 16, 2017    | August 27, 2017 | 10.26 [18]               |
 | 8     | 6        | April 14, 2019   | May 19, 2019  | 11.99 [19]                |
+
+
+knitr::include_graphics("https://upload.wikimedia.org/wikipedia/en/d/d8/Game_of_Thrones_title_card.jpg")
+
+
+
+
+
 
 
 
