@@ -47,7 +47,42 @@ The series concluded with its eighth season, which premiered on April 14, 2019, 
 6. The show’s ratings on review aggregator websites like Rotten Tomatoes and Metacritic were generally positive, with an average rating of 94% and 77 out of 100, respectively.
 
 
+library(ggplot2)
+
+# Create a dataframe of the viewership data
+seasons <- c(1:8)
+viewership <- c(2.52, 3.80, 4.97, 6.84, 6.88, 7.69, 10.26, 11.99)
+got_viewership <- data.frame(seasons, viewership)
+
+# Create the plot
+ggplot(got_viewership, aes(x = seasons, y = viewership)) +
+  geom_line(color = "red") +
+  geom_point(color = "red", size = 3) +
+  labs(title = "Viewership of Game of Thrones Over Time",
+       x = "Seasons",
+       y = "Average Viewership (millions)") +
+  theme_minimal()
 
 
 
+```{r}
+library(ggplot2)
 
+# create dataframe with viewership data
+got_viewership <- data.frame(
+  seasons = 1:8,
+  viewership = c(2.52, 3.80, 4.97, 6.84, 6.88, 7.69, 10.26, 11.99)
+)
+
+# plot viewership over time
+ggplot(got_viewership, aes(x = seasons, y = viewership)) + 
+  geom_line(color = "red") + 
+  geom_point(color = "red", size = 3) + 
+  labs(title = "Viewership of Game of Thrones Over Time", x = "Seasons", y = "Average Viewership (millions)") + 
+  theme_minimal()
+
+
+```
+
+
+Thank You 
