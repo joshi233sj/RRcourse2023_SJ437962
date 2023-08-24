@@ -1,0 +1,188 @@
+---
+title: "Metaanalysis in R"
+author: "SHUBHAM :437962"
+date: today
+format:  
+  html:
+    theme: lumen
+    toc: true
+    toc_float: true
+title-block-banner: true
+execute:
+  echo: fenced
+---
+
+```{r}
+#| label = "setup",
+#| include = FALSE
+library(meta)
+library(metafor)
+library(dplyr)
+#setwd("C:\\Users\\Dell\\Desktop\\UNIVERSITY OF WARSAW DATA SCIENCE & BUSINESS ANALYTICS\\RR\\RRcourse2023_SJ437962\\13. Metaanalysis")
+```
+
+
+
+```{r}
+install.packages("meta")
+```
+
+## Metaanalysis
+
+*a statistical analysis that combines the results of multiple scientific studies.* ([Wikipedia](https://en.wikipedia.org/wiki/Meta-analysis))
+
+Very important in e.g. medicine (where it's relatively easy to use).
+
+can serve various purposes:
+
+1) Using data from several research, determining the "true" size of the association.
+2) Calculating the average effect size from numerous research.
+3) Identifying factors that impact the relationship
+  - study-related (e.g., effects of the author, the journal, the method, variable choice, etc.)
+  - linked to context (such as changes over time, sample characteristics, nation, etc.)
+4) Determining publication biases (for instance, a meta-analysis of numerous papers that produced statistically significant results can come to the conclusion that there is insufficient evidence).
+
+
+
+
+##Introduction:
+
+In the realm of child development, the topic of toy preferences and their relation to gender has long been a subject of interest. The assignment at hand involves a meta-analysis study conducted by Todd et al. (2017) that delves into children's toy preferences from a systematic review, meta-regression, and meta-analysis perspective. The dataset to be explored is sourced from this study and resides in the "metaanalysis_data.xlsx" file.
+
+The primary focus of the study is to investigate the extent to which children's choice of toys aligns with gender stereotypes, particularly the selection of stereotypically 'boy-toys' versus stereotypically 'girl-toys.' The dataset comprises crucial information such as mean playtimes (measured in seconds) for both boys and girls, sample sizes, and standard errors for each toy category. Beyond these metrics, the dataset encompasses details about the studies themselves, including the year of publication, indicators of quality, and contextual factors.
+
+##Noteworthy factors included in the dataset are:
+
+Neutral Toys: A binary variable indicating whether neutral toys were included or excluded in the study.
+Parent Presence: A categorical variable denoting the level of interaction a parent had during the study, ranging from minimal to full interaction.
+Setting: A categorical variable indicating the location of the study, whether conducted at home, in a laboratory, or at a nursery.
+Country: This variable encompasses the gender inequality index, a metric quantifying the level of gender egalitarianism in the country at the time of the study.
+The dataset's quality is evaluated using the Newcastle-Ottawa Quality Assessment Scale, tailored for the context of this study. Criteria include factors like case definition adequacy, representativeness of cases, selection of controls, parental opinions, comparability of groups, ascertainment of behavior, same ascertainment method, and nonresponse rate.
+
+##The objective of the assignment is threefold:
+
+###Effects Combination: 
+The first step involves aggregating and synthesizing the effects from various studies to arrive at a comprehensive understanding of the overall trends in children's toy preferences.
+###Funnel Plot Creation:
+A funnel plot will be generated to visually assess potential publication bias or heterogeneity across studies.
+###Effects of Methods and Quality: 
+The analysis will examine whether different methods and study quality indicators impact the results.
+###Author Gender Impact:
+Lastly, the assignment seeks to determine if the gender of the authors has any influence on the results.
+
+By addressing these tasks, the study aims to contribute to the ongoing discourse on children's toy preferences, highlighting any potential patterns, biases, or influential factors that might play a role in shaping these preferences.
+
+
+
+
+
+
+```{r}
+library(readxl)
+data <- read_excel("data\\metaanalysis_data.xlsx")
+
+```
+## Case 1: Fixed Effects
+
+```{r}
+
+## Case 1: Fixed Effects
+
+# Perform meta-analysis with fixed effects
+fixed_effects <- meta::metagen(TE = Mean_boys_play_male,
+                               seTE = SD_boys_play_male,
+                               data = data,
+                               studlab = paste(Study),
+                               comb.fixed = TRUE,
+                               comb.random = FALSE)
+
+fixed_effects
+
+```
+##Summary of fixed effect
+
+In summary, the fixed-effects meta-analysis indicates a statistically significant overall effect of 96.0551 (95% CI [71.9496; 120.1605]) in the context of boys playing with male-associated toys. However, there is substantial heterogeneity among the effect sizes, which is statistically significant (p = 0.0026). The amount of heterogeneity suggests that the true effects across studies vary more than what could be attributed to chance alone. This could be due to differences in study characteristics, methodologies, or other factors that contribute to the observed variation.
+
+
+## Case 2: Combining both Fixed and Random Effects
+
+```{r}
+# Perform meta-analysis with both fixed and random effects
+mixed_effects <- meta::metacont(n.e = N_boys,
+                                mean.e = Mean_boys_play_male,
+                                sd.e = SD_boys_play_male,
+                                n.c = N_boys,
+                                mean.c = Mean_girls_play_male,
+                                sd.c = SD_girls_play_male,
+                                data = data,
+                                studlab = paste(Study),
+                                comb.fixed = TRUE,
+                                comb.random = TRUE)
+
+mixed_effects
+
+
+```
+###Summary of Mixed effect
+
+
+## Case 3: Random Effect
+
+```{r}
+# Perform meta-analysis with random effect
+random_effect <- meta::metacont(n.e = N_boys,
+                                mean.e = Mean_boys_play_male,
+                                sd.e = SD_boys_play_male,
+                                n.c = N_girls,
+                                mean.c = Mean_girls_play_male,
+                                sd.c = SD_girls_play_male,
+                                data = data,
+                                studlab = paste(Study),
+                                comb.fixed = FALSE,
+                                comb.random = TRUE)
+
+random_effect
+
+```
+
+###Summary of random effect
+
+The random-effects meta-analysis of 27 studies with a total of 1610 observations reveals a significant mean difference (MD) of 94.7832 (95% CI [66.7897; 122.7766]) regarding the context of interest. However, substantial heterogeneity among effect sizes is observed (I^2 = 88.0%, p < 0.0001), indicating significant variability beyond chance. The estimated tau^2 of 4678.7733 with a confidence interval of [2666.5809; 10251.8327] suggests diverse underlying true effects, potentially stemming from diverse study characteristics or methodologies. The Q-test for heterogeneity is highly significant (p < 0.0001). The overall findings emphasize both the significant effect and the pronounced heterogeneity in the analysis.
+
+```{r}
+# Plot forest plot for fixed effects meta-analysis
+fixed_effects %>% forest(sortvar = Mean_boys_play_male)
+
+```
+
+
+
+```{r}
+# Perform meta-regression to explore effects of `Female authors` and `Male authors`
+fixed_effects %>% metareg(~ `Female authors` + `Male authors`)
+
+  
+```  
+
+
+## Creating Funnel Plot
+
+
+```{r}
+# Plot funnel plot for random effects meta-analysis
+random_effect %>% funnel()
+
+```
+
+The above plot shows asymmetry or clustering of data points, it might indicate the presence of publication bias or heterogeneity.
+
+
+```{r}
+# Customize the funnel plot with contour levels and colors
+contour_levels <- c(0.70, 0.75, 0.75)
+contour_colors <- c("yellow", "green", "red")
+funnel(random_effect, contour = contour_levels, col.contour = contour_colors)
+legend("topright", c("p < 0.10", "p < 0.05", "p < 0.01"), bty = "n", fill = contour_colors)
+
+```
+

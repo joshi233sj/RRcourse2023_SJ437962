@@ -1,0 +1,61 @@
+---
+title: "Assignment"
+author: "Shubham Joshi - 437962"
+date: today
+output: html_document
+---
+
+```{r}
+load("../Data/season_7.RData")
+season_data <- read.csv("C:\\Users\\Dell\\Desktop\\UNIVERSITY OF WARSAW DATA SCIENCE & BUSINESS ANALYTICS\\RR\\RRcourse2023_SJ437962\\Data\\season_7.csv")
+most_viewed <- season_data[which.max(season_data$viewers), ]
+
+# Extract the title of the most viewed episode
+most_viewed_title <- most_viewed$title
+```
+
+# Game of Thrones - Season 7 summary in numbers
+
+### __(*Warning:* spoilers ahead)__
+
+***
+
+### Overview
+
+(From the [Wikipedia](https://en.wikipedia.org/wiki/Game_of_Thrones#Premise)) Game of Thrones is an American fantasy drama television series created by David Benioff and D. B. Weiss for HBO. It is an adaptation of A Song of Ice and Fire, a series of fantasy novels by George R. R. Martin, the first of which is A Game of Thrones.
+
+Set on the fictional continents of Westeros and Essos, Game of Thrones has a large ensemble cast and follows several story arcs throughout the course of the show. A major arc concerns the Iron Throne of the Seven Kingdoms of Westeros through a web of political conflicts among the noble families either vying to claim the throne or fighting for independence from it. Another focuses on the last descendant of the realm's deposed ruling dynasty, who has been exiled to Essos and is plotting a return to the throne. A third story arc follows the Night's Watch, a military order defending the realm against threats from the North.
+
+***
+
+### Season 7 summary
+
+Season 7 of Game of Thrones consisted of `r nrow(season_data)` episodes that aired between `r min(season_data$premiere_date)` and `r max(season_data$premiere_date)` on HBO. The show gathered an average of `r mean(season_data$viewers)` first-day TV viewers in the US, with the number growing from `r min(season_data$viewers)` to `r max(season_data$viewers)` million by the end of the season.
+
+The most popular episode of the season was `r most_viewed$title`, in which:
+> "`r most_viewed$description`"
+
+
+> "The episode's plot includes a negotiation between Cersei and Daenerys, and a rift between Cersei and Jaime; Theon rededicates himself to Yara; Sansa and Arya unite against Littlefinger; Jon Snow is revealed to be the child of Lyanna Stark and Rhaegar Targaryen; Jon and Daenerys's romantic relationship comes to fruition; and the Army of the Dead penetrates the Wall.
+The Dragon and the Wolf received a positive reception from critics. The pacing, however, was met with mixed reviews, and criticism was also leveled at the resemblance of Rhaegar Targaryen to his brother Viserys Targaryen. In the United States, the episode achieved a viewership of 12.07 million in its initial broadcast, making it the highest-rated episode of the series at the time.
+The episode received eight nominations at the 70th Primetime Emmy Awards – making it the most Emmy Award-nominated episode of the series to date –, including for its writing, direction, music, and the performances of Peter Dinklage and Lena Headey, with Djawadi and Dinklage winning in their categories. This episode marks the final appearance of Aidan Gillen (Petyr Littlefinger Baelish)."
+
+***
+
+You can see how the viewership of the episodes changed in Figure 1.
+
+```{r}
+#| label = "viewers_plot"
+plot(season_data$viewers, type="l", col="red", lwd=5, xlab = "Episode number", ylab = "1st day TV viewers in the US (millions)")
+```
+
+***
+
+Finally, the episodes with the above-average viewership were:
+
+| No. in season | Title  | Directed by  |
+|:------        |:-----: |:------:      |
+| 1             | "Stormborn"  | Alan Taylor      |
+| 4             | "The Spoils of War" | David Petrarca      |
+| 6             | "Beyond the Wall" | Alan Taylor      |
+| 7            | "The Dragon and the Wolf" | Alan Taylor      |
